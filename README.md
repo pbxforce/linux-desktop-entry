@@ -14,3 +14,10 @@ _**desktop_entry_inp.sh**_: It takes user inputs. Syntax is:
 Provide input as required by the script.
 
 After script executed successfully, search for newly created desktop entry by using 'windows' or 'super' key.
+
+For help, use '-h' or '--help' with the script file:
+
+    bash desktop_entry_arg.sh --help
+
+    bash desktop_entry_inp.sh --help
+
