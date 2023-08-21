@@ -3,11 +3,11 @@ A simple Bash script to create desktop entry for applicaiton in Linux environmen
 
 There are two script files in the repository. Both files functunality is similar and require SUDO privileges to work.
 
-**desktop_entry_arg.sh**: It takes Command line arguments. Basic syntax is:
+_**desktop_entry_arg.sh**_: It takes Command line arguments. Syntax is:
 
-    sudo bash desktop_entry.sh <set-entry-name> <executable-file-absolute-path> <favicon-file-absolute-path> <system-username>
+    sudo bash desktop_entry_arg.sh <set-entry-name> <executable-file-absolute-path> <favicon-file-absolute-path> <system-username>
 
-**desktop_entry_inp.sh**: It takes user inputs. Basic syntax is:
+_**desktop_entry_inp.sh**_: It takes user inputs. Syntax is:
 
     sudo bash desktop_entry_inp.sh
     
