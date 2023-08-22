@@ -11,7 +11,7 @@ help_section() {
 
 - set-name: Name for the desktop application
 - executable-file-absolute-path: Full path of application executable file. Usually It's .run file
-- favicon-file-absolute-path: Full path of favicon file. Usually It's located within the applicaiton installation directory. Use .ico file only
+- favicon-file-absolute-path: Full path of icon file. Usually It's located within the applicaiton installation directory. You can use PNG, ICO, and JPG format. PNG with transparent background should be preferred.
 - system-username: Name of the user who will be using this desktop entry
 
 EOF
