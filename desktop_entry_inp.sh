@@ -9,7 +9,7 @@ help_section() {
 
 - Desktop entry name: Name for the desktop application
 - Executable file path: Absolute path of application executable file. Usually It's .run file
-- Favicon file path: Absolute path of favicon file. Usually It's located within the applicaiton installation directory. Use .ico file only
+- Favicon file path: Absolute path of icon file. Usually It's located within the applicaiton installation directory. You can use PNG, ICO, and JPG files. PNG with transparent background should be preferred.
 - system username: Name of the user who will be using this desktop entry
 
 EOF
