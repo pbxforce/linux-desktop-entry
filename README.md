@@ -21,3 +21,4 @@ For help, use '-h' or '--help' with the script file:
 
     bash desktop_entry_inp.sh --help
 
+**Try not to skip the icon argument (or input) because that might mess your sudoers file. If you don't have any icon file, use icon that is provided in the repository under 'icons' directory.**
