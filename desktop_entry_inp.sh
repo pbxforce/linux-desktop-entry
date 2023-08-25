@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# This script is for creating desktop entry of applications from run file.
-# Simply run the script and pass the input parameters
+# This script is for creating desktop entry of applications from executable or '.run' file. Simply run the script and pass the input parameters
+
+# Help section
 help_section() {
     echo
     echo "--------------Linux Desktop Entry--------------"
@@ -34,6 +35,7 @@ read -p "Executable file path: " exec_path
 read -p "Icon file path: " ico_path
 cat <<EOF> $shortcut_entry
 [Desktop Entry]
+Encoding=UTF-8
 Version=1.0
 Type=Application
 Name=$desktop_entry
