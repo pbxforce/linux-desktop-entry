@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# This script is for creating desktop entry of applications from run file.
+# This script is for creating desktop entry of applications from executables or '.run' file.
+
 # Help parameters
 help_section() {
     echo
@@ -30,6 +31,7 @@ else
 fi
 cat <<EOF> $shortcut_entry
 [Desktop Entry]
+Encoding=UTF-8
 Version=1.0
 Type=Application
 Name=$1
