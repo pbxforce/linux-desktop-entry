@@ -12,7 +12,6 @@ help_section() {
 - set-name: Name for the desktop application
 - executable-file-absolute-path: Full path of application executable file. Usually It's .run file
 - favicon-file-absolute-path: Full path of icon file. Usually It's located within the applicaiton installation directory. You can use PNG, ICO, and JPG format. PNG with transparent background should be preferred.
-- system-username: Name of the user who will be using this desktop entry
 
 EOF
 }
@@ -39,16 +38,9 @@ Icon=$3
 Terminal=false
 StartupNotify=false
 EOF
-if [[ `cat /home/$4/.local/share/applications/$1.desktop|grep Name|cut -c6-` == "$1" ]];then
+if [[ `cat /home/$USER/.local/share/applications/$1.desktop|grep Name|cut -c6-` == "$1" ]];then
     echo "Entry file written successsfully"
 else
     echo "Entry file could not be written"
-    exit 1
-fi
-echo "$4 ALL=NOPASSWD: $2" >> /etc/sudoers
-if [[ `cat /etc/sudoers|tail -n 1|awk '{print$1}'` == "$4" ]];then
-    echo "DONE!!"
-else
-    echo "Unable to add permission for user"
     exit 1
 fi
