@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script is for creating desktop entry of applications from run file.
-# Simply run the script with sudo privileges and pass the input parameters
+# Simply run the script and pass the input parameters
 help_section() {
     echo
     echo "--------------Linux Desktop Entry--------------"
@@ -10,7 +10,6 @@ help_section() {
 - Desktop entry name: Name for the desktop application
 - Executable file path: Absolute path of application executable file. Usually It's .run file
 - Favicon file path: Absolute path of icon file. Usually It's located within the applicaiton installation directory. You can use PNG, ICO, and JPG files. PNG with transparent background should be preferred.
-- system username: Name of the user who will be using this desktop entry
 
 EOF
 }
@@ -21,7 +20,7 @@ if [[ $1 == "-h" ]] || [[ $1 == "--help" ]];then
 fi
 
 # Main script
-default_app_path="/usr/share/applications"
+default_app_path="/home/$USER/.local/share/applications"
 read -p "Desktop entry name: " desktop_entry
 shortcut_entry="$default_app_path/$desktop_entry.desktop"
 touch $shortcut_entry
@@ -32,28 +31,20 @@ else
     exit 1
 fi
 read -p "Executable file path: " exec_path
-read -p "Favicon file path: " ico_path
+read -p "Icon file path: " ico_path
 cat <<EOF> $shortcut_entry
 [Desktop Entry]
 Version=1.0
 Type=Application
 Name=$desktop_entry
-Exec=sudo $exec_path
+Exec=$exec_path %U
 Icon=$ico_path
 Terminal=false
 StartupNotify=false
 EOF
-if [[ `cat /usr/share/applications/xampp.desktop|grep Name|cut -c6-` == "$desktop_entry" ]];then
+if [[ `cat /home/$USER/.local/share/applications/xampp.desktop|grep Name|cut -c6-` == "$desktop_entry" ]];then
     echo "Entry file written successsfully"
 else
     echo "Entry file could not be written"
-    exit 1
-fi
-read -p "System username: " sys_user
-echo "$sys_user ALL=NOPASSWD: $exec_path" >> /etc/sudoers
-if [[ `cat /etc/sudoers|tail -n 1|awk '{print$1}'` == "$sys_user" ]];then
-    echo "DONE!!"
-else
-    echo "Unable to add permission for user"
     exit 1
 fi
