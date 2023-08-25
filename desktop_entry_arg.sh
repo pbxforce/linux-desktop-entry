@@ -21,7 +21,7 @@ if [[ $1 == "-h" ]] || [[ $1 == "--help" ]];then
     help_section
     exit 0
 fi
-shortcut_entry="/usr/share/applications/$1.desktop"
+shortcut_entry="/home/$4/.local/share/applications/$1.desktop"
 touch $shortcut_entry
 if [[ -e $shortcut_entry ]];then
     echo "Desktop entry created"
@@ -34,12 +34,12 @@ cat <<EOF> $shortcut_entry
 Version=1.0
 Type=Application
 Name=$1
-Exec=sudo $2
+Exec=$2 %U
 Icon=$3
 Terminal=false
 StartupNotify=false
 EOF
-if [[ `cat /usr/share/applications/xampp.desktop|grep Name|cut -c6-` == "$1" ]];then
+if [[ `cat /home/$4/.local/share/applications/$1.desktop|grep Name|cut -c6-` == "$1" ]];then
     echo "Entry file written successsfully"
 else
     echo "Entry file could not be written"
