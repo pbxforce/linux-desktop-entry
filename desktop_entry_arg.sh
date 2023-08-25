@@ -6,7 +6,7 @@ help_section() {
     echo
     echo "--------------Linux Desktop Entry--------------"
     echo
-    echo "Sytax: sudo bash desktop_entry_arg.sh <set-name> <executable-file-absolute-path> <path-to-app-favicon-file> <username>"
+    echo "Sytax: bash desktop_entry_arg.sh <set-name> <executable-file-absolute-path> <path-to-app-favicon-file> <username>"
     cat <<EOF
 
 - set-name: Name for the desktop application
@@ -20,7 +20,7 @@ if [[ $1 == "-h" ]] || [[ $1 == "--help" ]];then
     help_section
     exit 0
 fi
-shortcut_entry="/home/$4/.local/share/applications/$1.desktop"
+shortcut_entry="/home/$USER/.local/share/applications/$1.desktop"
 touch $shortcut_entry
 if [[ -e $shortcut_entry ]];then
     echo "Desktop entry created"
