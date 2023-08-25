@@ -42,7 +42,7 @@ Icon=$ico_path
 Terminal=false
 StartupNotify=false
 EOF
-if [[ `cat /home/$USER/.local/share/applications/xampp.desktop|grep Name|cut -c6-` == "$desktop_entry" ]];then
+if [[ `cat /home/$USER/.local/share/applications/$desktop_entry.desktop|grep Name|cut -c6-` == "$desktop_entry" ]];then
     echo "Entry file written successsfully"
 else
     echo "Entry file could not be written"
